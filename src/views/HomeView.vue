@@ -11,6 +11,7 @@
         <button
           id="delete-product-btn"
           class="btn btn-danger"
+          :disabled="loading"
           @click="deleteProduct"
         >
           MASS DELETE
@@ -34,6 +35,7 @@ export default {
     return {
       products: null,
       ids: [],
+      loading: false,
     };
   },
   methods: {
@@ -52,6 +54,7 @@ export default {
       }
     },
     async deleteProduct() {
+      this.loading = true;
       try {
         await this.axios.delete(`${this.$hostname}/product`, {
           headers: {
@@ -62,7 +65,8 @@ export default {
             ids: this.ids,
           },
         });
-        this.products = this.products.filter(p => !this.ids.includes(p.id))
+        this.products = this.products.filter(p => !this.ids.includes(p.id));
+        this.loading = false;
       } catch (error) {
         console.log(error);
       }
