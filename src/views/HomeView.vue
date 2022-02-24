@@ -62,7 +62,7 @@ export default {
             ids: this.ids,
           },
         });
-        this.getProducts();
+        this.products = this.products.filter(p => !this.ids.includes(p.id))
       } catch (error) {
         console.log(error);
       }
