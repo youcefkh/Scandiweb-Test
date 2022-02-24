@@ -9,7 +9,7 @@ Vue.use(VueAxios, axios);
 Vue.config.productionTip = false;
 
 Vue.prototype.$hostname =
-  "http://localhost/PROJECTS/PHPOOP/scandiweb-test/src/api";
+  "https://scandiweb-test-youcef.easy-soft-tlemcen.com";
 
 new Vue({
   router,

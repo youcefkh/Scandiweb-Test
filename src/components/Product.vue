@@ -59,7 +59,6 @@ export default {
   border-radius: 5%;
   height: 200px;
   cursor: pointer;
-  z-index: 2;
 }
 
 .product p{
@@ -78,6 +77,5 @@ input.delete-checkbox {
   height: 15px;
   width: 15px;
   cursor: pointer;
-  z-index: 1;
 }
 </style>
