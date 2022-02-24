@@ -55,6 +55,7 @@ export default {
     },
     async deleteProduct() {
       this.loading = true;
+      this.products = this.products.filter(p => !this.ids.includes(p.id));
       try {
         await this.axios.delete(`${this.$hostname}/product`, {
           headers: {
@@ -65,7 +66,6 @@ export default {
             ids: this.ids,
           },
         });
-        this.products = this.products.filter(p => !this.ids.includes(p.id));
         this.loading = false;
       } catch (error) {
         console.log(error);
